@@ -3,9 +3,7 @@ RUN     apt update && apt upgrade && apt install -y mariadb-server
 COPY    50-server.cnf /etc/mysql/mariadb.conf.d
 COPY    init.sql /etc/mysql/init.sql
 COPY    script.sh .
-RUN     mkdir /run/mysqld && chmod +x script.sh
+RUN     mkdir /run/mysqld && chmod +x script.sh && \
+        chown -R mysql:mysql /var/lib/mysql /run/mysqld /etc/mysql
+USER    mysql
 CMD     ["./script.sh"]
-
-# docker run -it debian:oldstable bash
-# cat /etc/debian_version
-# cat /etc/os-release
