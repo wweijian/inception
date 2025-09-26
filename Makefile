@@ -1,5 +1,3 @@
-NAME:
-
 all: build run
 
 build:
@@ -14,7 +12,7 @@ check:
 clean:
 	@docker compose -f srcs/docker-compose.yml down
 
-fclean:
+fclean: clean
 	docker system prune -a -f
 
 re: fclean all
