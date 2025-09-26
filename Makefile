@@ -7,7 +7,7 @@ run:
 	@docker compose -f srcs/docker-compose.yml up -d
 
 check:
-	docker ps
+	@docker ps -a
 
 clean:
 	@docker compose -f srcs/docker-compose.yml down
