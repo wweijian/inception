@@ -1,10 +1,10 @@
-volumes:
-    wordpress:
-    mariadb:
+# volumes:
+#     wordpress:
+#     mariadb:
 
 networks:
   inception:
-    name: imception
+    name: inception
 
 services:
     nginx:
@@ -16,7 +16,7 @@ services:
       ports:
         - "80:80"
       volumes:
-        - wordpress:/var/www/html
+        - /home/wjhoe/data/wordpress:/var/www/html
       networks:
         - inception
       env_file:
@@ -27,7 +27,7 @@ services:
       container_name: wp-php
       build: requirements/wordpress/
       volumes:
-        - wordpress:/var/www/html
+        - /home/wjhoe/data/wordpress:/var/www/html
       depends_on:
         - mariadb
       env_file:
@@ -42,9 +42,8 @@ services:
       env_file:
         - .env
       volumes:
-        - mariadb:/var/lib/mysql      
+        - /home/wjhoe/data/mariadb:/var/lib/mysql      
       networks:
         - inception
       restart:
         always
-      
