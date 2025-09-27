@@ -3,14 +3,14 @@ volumes:
                 name: wordpress
                 driver: local
                 driver_opts:
-                        device: /Users/sahafid/Desktop/Inception/srcs/wordpress
+                        device: /home/wjhoe/inception/srcs/wordpress
                         o: bind
                         type: none
         mariadb:
                 name: mariadb
                 driver: local
                 driver_opts:
-                        device: /Users/sahafid/Desktop/Inception/srcs/mariadb
+                        device: /home/wjhoe/inception/srcs/mariadb
                         o: bind
                         type: none
 
@@ -34,7 +34,7 @@ services:
       env_file:
         - .env
       restart:
-        always
+        on-failure
     wordpress:
       container_name: wp-php
       build: requirements/wordpress/
@@ -47,7 +47,7 @@ services:
       networks:
         - inception
       restart:
-        always
+        on-failure
     mariadb:
       container_name: mariadb
       build: requirements/mariadb/
@@ -57,5 +57,5 @@ services:
         - /home/wjhoe/data/mariadb:/var/lib/mysql      
       networks:
         - inception
-      restart:
-        always
+      # restart:
+
