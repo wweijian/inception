@@ -1,9 +1,6 @@
 
 networks:
   inception:
-
-networks:
-  inception:
     name: inception
 
 services:
