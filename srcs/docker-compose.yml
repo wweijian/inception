@@ -16,8 +16,7 @@ services:
     depends_on:
       - mariadb
     volumes:
-      wp-data: /home/wj
-      hoe/data/wordpress
+      wp-data: /home/wjhoe/data/wordpress
     networks: inception
     secrets:
   mariadb:
