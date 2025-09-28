@@ -36,7 +36,7 @@ else
 	# so we cannot use: service mysql start
 	# We might be able to install with: apk add openrc
 	# But we can also manually start and configure the mysql daemon:
-	/usr/sbin/mysqld --user=mysql --bootstrap < ${TMP}
+	/etc/mysql/init.sql --user=mysql --bootstrap < ${TMP}
 	rm -f ${TMP}
 	echo "[DB config] MySQL configuration done."
 fi
