@@ -1,27 +1,10 @@
-2025-09-28  5:15:21 0 [Note] Starting MariaDB 10.11.14-MariaDB-0+deb12u2 source revision 053f9bcb5b147bf00edb99e1310bae9125b7f125 server_uid vr8RW+R3oMPZZM3PpCvLWQObutw= as process 1
-2025-09-28  5:15:21 0 [Note] InnoDB: The first data file './ibdata1' did not exist. A new tablespace will be created!
-2025-09-28  5:15:21 0 [Note] InnoDB: Compressed tables use zlib 1.2.13
-2025-09-28  5:15:21 0 [Note] InnoDB: Number of transaction pools: 1
-2025-09-28  5:15:21 0 [Note] InnoDB: Using crc32 + pclmulqdq instructions
-2025-09-28  5:15:21 0 [Warning] mysqld: io_uring_queue_init() failed with EPERM: sysctl kernel.io_uring_disabled has the value 2, or 1 and the user of the process is not a member of sysctl kernel.io_uring_group. (see man 2 io_uring_setup).
-create_uring failed: falling back to libaio
-2025-09-28  5:15:21 0 [Note] InnoDB: native AIO failed: falling back to innodb_use_native_aio=OFF
-2025-09-28  5:15:21 0 [Note] InnoDB: innodb_buffer_pool_size_max=128m, innodb_buffer_pool_size=128m
-2025-09-28  5:15:21 0 [Note] InnoDB: Completed initialization of buffer pool
-2025-09-28  5:15:21 0 [Note] InnoDB: Setting file './ibdata1' size to 12.000MiB. Physically writing the file full; Please wait ...
-2025-09-28  5:15:21 0 [Note] InnoDB: File './ibdata1' size is now 12.000MiB.
-2025-09-28  5:15:21 0 [Note] InnoDB: File system buffers for log disabled (block size=512 bytes)
-2025-09-28  5:15:21 0 [Note] InnoDB: Doublewrite buffer not found: creating new
-2025-09-28  5:15:21 0 [Note] InnoDB: Doublewrite buffer created
-2025-09-28  5:15:21 0 [Note] InnoDB: 128 rollback segments are active.
-2025-09-28  5:15:21 0 [Note] InnoDB: Setting file './ibtmp1' size to 12.000MiB. Physically writing the file full; Please wait ...
-2025-09-28  5:15:21 0 [Note] InnoDB: File './ibtmp1' size is now 12.000MiB.
-2025-09-28  5:15:21 0 [Note] InnoDB: log sequence number 0; transaction id 3
-2025-09-28  5:15:21 0 [Note] Plugin 'FEEDBACK' is disabled.
-2025-09-28  5:15:21 0 [ERROR] Could not open mysql.plugin table: "Table 'mysql.plugin' doesn't exist". Some plugins may be not loaded
-2025-09-28  5:15:21 0 [Warning] You need to use --log-bin to make --expire-logs-days or --binlog-expire-logs-seconds work.
-2025-09-28  5:15:21 0 [ERROR] Can't open and lock privilege tables: Table 'mysql.servers' doesn't exist
-2025-09-28  5:15:21 0 [Note] Server socket created on IP: '172.18.0.4', port: '3306'.
-2025-09-28  5:15:21 0 [ERROR] Can't start server : Bind on unix socket: No such file or directory
-2025-09-28  5:15:21 0 [ERROR] Do you already have another server running on socket: /run/mysqld/mysqld.sock ?
-2025-09-28  5:15:21 0 [ERROR] Aborting
+2025-09-28  9:24:35 0 [Warning] mariadbd: io_uring_queue_init() failed with EPERM: sysctl kernel.io_uring_disabled has the value 2, or 1 [DB config] MySQL Data Directory done.
+[DB config] Configuring MySQL...
+[DB config] MySQL configuration done.
+[DB config] Allowing remote connections to MariaDB
+[DB config] Starting MariaDB daemon on port 3306.
+ake --expire-logs-days or --binlog-expire-logs-seconds work.
+./script.sh: 39: /usr/bin/mysqld: not found
+sed: can't read /etc/my.cnf.d/mariadb-server.cnf: No such file or directory
+sed: can't read /etc/my.cnf.d/mariadb-server.cnf: No such file or directory
+./script.sh: 49: exec: /usr/bin/mysqld: not found
