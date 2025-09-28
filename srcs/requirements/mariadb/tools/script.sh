@@ -36,14 +36,14 @@ else
 	# so we cannot use: service mysql start
 	# We might be able to install with: apk add openrc
 	# But we can also manually start and configure the mysql daemon:
-	/usr/bin/mysqld --user=mysql --bootstrap < ${TMP}
+	/usr/sbin/mysqld --user=mysql --bootstrap < ${TMP}
 	rm -f ${TMP}
 	echo "[DB config] MySQL configuration done."
 fi
 
 echo "[DB config] Allowing remote connections to MariaDB"
-sed -i "s|skip-networking|# skip-networking|g" /etc/my.cnf.d/mariadb-server.cnf
-sed -i "s|.*bind-address\s*=.*|bind-address=0.0.0.0|g" /etc/my.cnf.d/mariadb-server.cnf
+sed -i "s|skip-networking|# skip-networking|g" /etc/mysql/mariadb.conf.d/50-server.cnf
+sed -i "s|.*bind-address\s*=.*|bind-address=0.0.0.0|g" /etc/mysql/mariadb.conf.d/50-server.cnf
 
 echo "[DB config] Starting MariaDB daemon on port 3306."
-exec /usr/bin/mysqld --user=mysql --console
+exec /usr/sbin/mysqld --user=mysql --console
