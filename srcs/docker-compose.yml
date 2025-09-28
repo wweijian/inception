@@ -23,8 +23,7 @@ services:
     container name:
     build: requirements/mariadb
     volumes:
-      db-data: /home/wj
-      hoe/data/mariadb
+      db-data: /home/wjhoe/data/mariadb
     networks: inception
 
 volumes:
