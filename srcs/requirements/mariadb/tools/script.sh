@@ -15,4 +15,4 @@ echo "GRANT ALL PRIVILEGES ON ${WP_DB_NAME}.* TO '${WP_DB_USER}'@'%' IDENTIFIED 
 echo "FLUSH PRIVILEGES;" >> ${INIT}
 
 cp tmp/init.sql /etc/mysql/init.sql
-exec /usr/bin/mysqld --user=mysql --console
+exec /usr/sbin/mysqld --user=mysql --console
