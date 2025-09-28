@@ -1,18 +1,17 @@
 #!/bin/bash
 
-INIT='/tmp/init.sql'
+# INIT='/tmp/init.sql'
 
-echo "USE mysql;" > ${INIT}
-echo "FLUSH PRIVILEGES;" >> ${INIT}
-echo "DELETE FROM mysql.user WHERE User='';" >> ${INIT}
-echo "DROP DATABASE IF EXISTS test;" >> ${INIT}
-echo "DELETE FROM mysql.db WHERE Db='test';" >> ${INIT}
-echo "DELETE FROM mysql.user WHERE User='root' AND Host NOT IN ('localhost', '127.0.0.1', '::1');" >> ${INIT}
-echo "ALTER USER 'root'@'localhost' IDENTIFIED BY '${DB_ROOT_PASS}';" >> ${INIT}
-echo "CREATE DATABASE ${WP_DB_NAME};" >> ${INIT}
-echo "CREATE USER '${WP_DB_USER}'@'%' IDENTIFIED BY '${WP_DB_PASS}';" >> ${INIT}
-echo "GRANT ALL PRIVILEGES ON ${WP_DB_NAME}.* TO '${WP_DB_USER}'@'%' IDENTIFIED BY '${WP_DB_PASS}';" >> ${INIT}
-echo "FLUSH PRIVILEGES;" >> ${INIT}
+service mariadb start
+sleep 4
 
-cp tmp/init.sql /etc/mysql/init.sql
-exec /usr/sbin/mysqld --user=mysql --console
+mysql -e "CREATE USER IF NOT EXISTS '${MARIADB_USER}'@'%' IDENTIFIED BY '${MARIADB_PASSWORD}';"
+mysql -e "GRANT ALL PRIVILEGES ON *.* TO '${MARIADB_USER}'@'%';"
+mysql -e "CREATE DATABASE IF NOT EXISTS ${MARIADB_DATABASE};"
+mysql -e "ALTER USER root@localhost IDENTIFIED BY '${MARIADB_ROOT_PASSWORD}';"
+mysql -u root  -p"${MARIADB_ROOT_PASSWORD}" -e "FLUSH PRIVILEGES;"
+mysqladmin -u root -p"${MARIADB_ROOT_PASSWORD}" shutdown
+mysqld_safe
+
+# cp tmp/init.sql /etc/mysql/init.sql
+# exec /usr/sbin/mysqld --user=mysql --console
