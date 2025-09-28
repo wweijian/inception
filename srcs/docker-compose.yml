@@ -8,6 +8,9 @@ services:
     build: requirements/nginx
     depends_on:
       - wordpress
+      - mariadb
+    volumes:
+      - /home/wjhoe/data/wordpress:/var/www/html
     networks:
       - inception
     ports:
