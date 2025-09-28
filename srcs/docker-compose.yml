@@ -2,39 +2,45 @@
 networks:
   inception:
 
+networks:
+  inception:
+    name: inception
+
 services:
-  nginx:
-    container_name: nginx
-    build: requirements/nginx
-    depends_on:
-      - wordpress
-      - mariadb
-    volumes:
-      - /home/wjhoe/data/wordpress:/var/www/html
-    networks:
-      - inception
-    ports:
-      - "443:443"
-    restart: on-failure
-  wordpress:
-    container_name: wordpress
-    build: requirements/wordpress
-    depends_on:
-      - mariadb
-    volumes:
-      - /home/wjhoe/data/wordpress:/var/www/html
-    networks:
-      - inception
-    # secrets:
-    restart: on-failure
-  mariadb:
-    container_name: mariadb
-    build: requirements/mariadb
-    volumes:
-      - /home/wjhoe/data/mariadb:/var/lib/mysql
-    networks:
-      - inception
-    restart: on-failure
+    nginx:
+      container_name: nginx
+      build: requirements/nginx/
+      depends_on:
+        - wordpress
+        - mariadb
+      ports:
+        - "80:80"
+      volumes:
+        - /home/wjhoe/data/wordpress:/var/www/html
+      networks:
+        - inception
+      restart:
+        on-failure
+    wordpress:
+      container_name: wp-php
+      build: requirements/wordpress/
+      volumes:
+        - /home/wjhoe/data/wordpress:/var/www/html
+      depends_on:
+        - mariadb
+      networks:
+        - inception
+      restart:
+        on-failure
+    mariadb:
+      container_name: mariadb
+      build: requirements/mariadb/
+      volumes:
+        - /home/wjhoe/data/mariadb:/var/lib/mysql      
+      networks:
+        - inception
+      # restart:
+
 
 # volumes:
 #   db-data:
