@@ -4,31 +4,38 @@ networks:
 
 services:
   nginx:
-    container name:
+    container_name: nginx
     build: requirements/nginx
     depends_on:
       - wordpress
-    networks: inception
-    ports: "443:443"
+    networks:
+      - inception
+    ports:
+      - "443:443"
+    restart: on-failure
   wordpress:
-    container name:
+    container_name: wordpress
     build: requirements/wordpress
     depends_on:
       - mariadb
     volumes:
-      wp-data: /home/wjhoe/data/wordpress
-    networks: inception
-    secrets:
+      - /home/wjhoe/data/wordpress:/var/www/html
+    networks:
+      - inception
+    # secrets:
+    restart: on-failure
   mariadb:
-    container name:
+    container_name: mariadb
     build: requirements/mariadb
     volumes:
-      db-data: /home/wjhoe/data/mariadb
-    networks: inception
+      - /home/wjhoe/data/mariadb:/var/lib/mysql
+    networks:
+      - inception
+    restart: on-failure
 
-volumes:
-  db-data:
-  wp-data:
+# volumes:
+#   db-data:
+#   wp-data:
 
 # Networks let services communicate with each other.
 # You’re mapping host port 443 to container port 443, so traffic to your machine’s port 443 goes into the container’s port 443.
