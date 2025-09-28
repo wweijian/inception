@@ -1,0 +1,4 @@
+2025-09-28  5:02:10 0 [Note] Starting MariaDB 10.11.14-MariaDB-0+deb12u2 source revision 053f9bcb5b147bf00edb99e1310bae9125b7f125 server_uid a1LNe1GuKZXYUro5Yza5w6Gk0Fs= as process 1
+2025-09-28  5:02:10 0 [ERROR] mysqld: Can't create/write to file './ddl_recovery.log' (Errcode: 13 "Permission denied")
+2025-09-28  5:02:10 0 [ERROR] DDL_LOG: Failed to create ddl log file: ./ddl_recovery.log
+2025-09-28  5:02:10 0 [ERROR] Aborting
