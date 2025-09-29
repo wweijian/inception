@@ -1,9 +1,22 @@
-FROM       debian:oldstable
-RUN        apt update && apt upgrade && apt install -y mariadb-server
-COPY       conf/50-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
-# COPY       tools/init.sql /etc/mysql/init.sql
-COPY       tools/script.sh .
-RUN        chmod +x script.sh
-EXPOSE     3306
+# Start from Debian Bookworm (or Bullseye)
+FROM debian:bookworm
 
-CMD        ["./script.sh"]
+# Install required packages
+RUN apt-get update && apt-get upgrade -y && \
+    apt-get install -y mariadb-server mariadb-client && \
+    rm -rf /var/lib/apt/lists/*
+
+# Make sure MariaDB directories exist and are owned by mysql user
+RUN mkdir -p /var/lib/mysql /run/mysqld && \
+    chown -R mysql:mysql /var/lib/mysql /run/mysqld && \
+    chmod 750 /var/lib/mysql /run/mysqld
+
+# Expose MySQL port
+EXPOSE 3306
+
+# Copy your init script (to set root password, create db, etc.)
+COPY ./init.sh /usr/local/bin/init.sh
+RUN chmod +x /usr/local/bin/init.sh
+
+# Default command
+ENTRYPOINT ["/usr/local/bin/init.sh"]
