@@ -19,3 +19,93 @@ GRANT ALL PRIVILEGES ON \`${DB_NAME}\`.* TO `${DB_USER}`@`%`;
 GRANT ALL PRIVILEGES ON \`${DB_NAME}\`.* TO `root`@`%`;
 FLUSH PRIVILEGES;
 EOF
+/usr/local/bin/init.sh: line 15: fg: no job control
+/usr/local/bin/init.sh: line 15: fg: no job control
+/usr/local/bin/init.sh: line 15: root: command not found
+/usr/local/bin/init.sh: line 15: fg: no job control
+--------------
+CREATE DATABASE IF NOT EXISTS ``
+--------------
+
+ERROR 1102 (42000) at line 1: Incorrect database name ''
+/usr/local/bin/init.sh: line 15: fg: no job control
+/usr/local/bin/init.sh: line 15: fg: no job control
+/usr/local/bin/init.sh: line 15: root: command not found
+/usr/local/bin/init.sh: line 15: fg: no job control
+--------------
+CREATE DATABASE IF NOT EXISTS ``
+--------------
+
+ERROR 1102 (42000) at line 1: Incorrect database name ''
+/usr/local/bin/init.sh: line 15: fg: no job control
+/usr/local/bin/init.sh: line 15: fg: no job control
+/usr/local/bin/init.sh: line 15: root: command not found
+/usr/local/bin/init.sh: line 15: fg: no job control
+--------------
+CREATE DATABASE IF NOT EXISTS ``
+--------------
+
+ERROR 1102 (42000) at line 1: Incorrect database name ''
+/usr/local/bin/init.sh: line 15: fg: no job control
+/usr/local/bin/init.sh: line 15: fg: no job control
+/usr/local/bin/init.sh: line 15: root: command not found
+/usr/local/bin/init.sh: line 15: fg: no job control
+--------------
+CREATE DATABASE IF NOT EXISTS ``
+--------------
+
+ERROR 1102 (42000) at line 1: Incorrect database name ''
+/usr/local/bin/init.sh: line 15: fg: no job control
+/usr/local/bin/init.sh: line 15: fg: no job control
+/usr/local/bin/init.sh: line 15: root: command not found
+/usr/local/bin/init.sh: line 15: fg: no job control
+--------------
+CREATE DATABASE IF NOT EXISTS ``
+--------------
+
+ERROR 1102 (42000) at line 1: Incorrect database name ''
+/usr/local/bin/init.sh: line 15: fg: no job control
+/usr/local/bin/init.sh: line 15: fg: no job control
+/usr/local/bin/init.sh: line 15: root: command not found
+/usr/local/bin/init.sh: line 15: fg: no job control
+--------------
+CREATE DATABASE IF NOT EXISTS ``
+--------------
+
+ERROR 1102 (42000) at line 1: Incorrect database name ''
+/usr/local/bin/init.sh: line 15: fg: no job control
+/usr/local/bin/init.sh: line 15: fg: no job control
+/usr/local/bin/init.sh: line 15: root: command not found
+/usr/local/bin/init.sh: line 15: fg: no job control
+--------------
+CREATE DATABASE IF NOT EXISTS ``
+--------------
+
+ERROR 1102 (42000) at line 1: Incorrect database name ''
+/usr/local/bin/init.sh: line 15: fg: no job control
+/usr/local/bin/init.sh: line 15: fg: no job control
+/usr/local/bin/init.sh: line 15: root: command not found
+/usr/local/bin/init.sh: line 15: fg: no job control
+--------------
+CREATE DATABASE IF NOT EXISTS ``
+--------------
+
+ERROR 1102 (42000) at line 1: Incorrect database name ''
+/usr/local/bin/init.sh: line 15: fg: no job control
+/usr/local/bin/init.sh: line 15: fg: no job control
+/usr/local/bin/init.sh: line 15: root: command not found
+/usr/local/bin/init.sh: line 15: fg: no job control
+--------------
+CREATE DATABASE IF NOT EXISTS ``
+--------------
+
+ERROR 1102 (42000) at line 1: Incorrect database name ''
+/usr/local/bin/init.sh: line 15: fg: no job control
+/usr/local/bin/init.sh: line 15: fg: no job control
+/usr/local/bin/init.sh: line 15: root: command not found
+/usr/local/bin/init.sh: line 15: fg: no job control
+--------------
+CREATE DATABASE IF NOT EXISTS ``
+--------------
+
+ERROR 1102 (42000) at line 1: Incorrect database name ''
