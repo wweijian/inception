@@ -1,8 +1,8 @@
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-100 6975k  100 6975k    0     0  5099k      0  0:00:01  0:00:01 --:--:-- 5117k
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0 42 6975k   42 2955k    0     0  2858k      0  0:00:02  0:00:01  0:00:01 2858k100 6975k  100 6975k    0     0  5195k      0  0:00:01  0:00:01 --:--:-- 5197k
 Error: WordPress files seem to already be present here.
 PHP Warning:  mysqli_real_connect(): php_network_getaddresses: getaddrinfo for $(DB_HOST) failed: Name or service not known in phar:///var/www/html/wp-cli.phar/vendor/wp-cli/config-command/src/Config_Command.php on line 234
 Error: Database connection error (2002) php_network_getaddresses: getaddrinfo for $(DB_HOST) failed: Name or service not known
-Error: wp-config.php not found.
+Error: 'wp-config.php' not found.
 Either create one manually or use `wp config create`.
