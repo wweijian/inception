@@ -1,7 +1,11 @@
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0 81 6975k   81 5655k    0     0  4478k      0  0:00:01  0:00:01 --:--:-- 4485k100 6975k  100 6975k    0     0  5502k      0  0:00:01  0:00:01 --:--:-- 5509k
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0 57 6975k   57 3979k    0     0  3680k      0  0:00:01  0:00:01 --:--:-- 3684k100 6975k  100 6975k    0     0  5134k      0  0:00:01  0:00:01 --:--:-- 5140k
 Error: WordPress files seem to already be present here.
-Error: Database connection error (2002) Connection refused
-Error: 'wp-config.php' not found.
-Either create one manually or use `wp config create`.
+./script.sh: line 7: mysqladmin: command not found
+./script.sh: line 7: mysqladmin: command not found
+./script.sh: line 7: mysqladmin: command not found
+./script.sh: line 7: mysqladmin: command not found
+./script.sh: line 7: mysqladmin: command not found
+./script.sh: line 7: mysqladmin: command not found
+./script.sh: line 7: mysqladmin: command not found
