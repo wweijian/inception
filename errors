@@ -1,16 +1,8 @@
-
-   6 |     RUN     mkdir -p /etc/ssl/certs /etc/ssl/private
-
-   7 | >>> RUN     openssl req -x509 -nodes -days 365 \
-
-   8 | >>>         -newkey rsa:2048 \
-
-   9 | >>>         -keyout /etc/ssl/private/self-sign.key \
-
-  10 | >>>         -out /etc/ssl/certs/self-sign.cert \
-
-  11 | >>>         -subj "CN=wjhoe.42.fr"
-
-  12 |     EXPOSE  443
-
-
+2025/09/30 01:46:05 [emerg] 1#1: cannot load certificate key "/etc/ssl/certs/self-sign.key": BIO_new_file() failed (SSL: error:80000002:system library::No such file or directory:calling fopen(/etc/ssl/certs/self-sign.key, r) error:10000080:BIO routines::no such file)
+2025/09/30 01:46:06 [emerg] 1#1: cannot load certificate key "/etc/ssl/certs/self-sign.key": BIO_new_file() failed (SSL: error:80000002:system library::No such file or directory:calling fopen(/etc/ssl/certs/self-sign.key, r) error:10000080:BIO routines::no such file)
+2025/09/30 01:46:07 [emerg] 1#1: cannot load certificate key "/etc/ssl/certs/self-sign.key": BIO_new_file() failed (SSL: error:80000002:system library::No such file or directory:calling fopen(/etc/ssl/certs/self-sign.key, r) error:10000080:BIO routines::no such file)
+2025/09/30 01:46:07 [emerg] 1#1: cannot load certificate key "/etc/ssl/certs/self-sign.key": BIO_new_file() failed (SSL: error:80000002:system library::No such file or directory:calling fopen(/etc/ssl/certs/self-sign.key, r) error:10000080:BIO routines::no such file)
+2025/09/30 01:46:09 [emerg] 1#1: cannot load certificate key "/etc/ssl/certs/self-sign.key": BIO_new_file() failed (SSL: error:80000002:system library::No such file or directory:calling fopen(/etc/ssl/certs/self-sign.key, r) error:10000080:BIO routines::no such file)
+2025/09/30 01:46:11 [emerg] 1#1: cannot load certificate key "/etc/ssl/certs/self-sign.key": BIO_new_file() failed (SSL: error:80000002:system library::No such file or directory:calling fopen(/etc/ssl/certs/self-sign.key, r) error:10000080:BIO routines::no such file)
+2025/09/30 01:46:14 [emerg] 1#1: cannot load certificate key "/etc/ssl/certs/self-sign.key": BIO_new_file() failed (SSL: error:80000002:system library::No such file or directory:calling fopen(/etc/ssl/certs/self-sign.key, r) error:10000080:BIO routines::no such file)
+2025/09/30 01:46:21 [emerg] 1#1: cannot load certificate key "/etc/ssl/certs/self-sign.key": BIO_new_file() failed (SSL: error:80000002:system library::No such file or directory:calling fopen(/etc/ssl/certs/self-sign.key, r) error:10000080:BIO routines::no such file)
