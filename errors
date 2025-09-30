@@ -1,18 +1,8 @@
-
-
-WordPress
-Before getting started
-
-Welcome to WordPress. Before getting started, you will need to know the following items.
-
-    Database name
-    Database username
-    Database password
-    Database host
-    Table prefix (if you want to run more than one WordPress in a single database)
-
-This information is being used to create a wp-config.php file. If for any reason this automatic file creation does not work, do not worry. All this does is fill in the database information to a configuration file. You may also simply open wp-config-sample.php in a text editor, fill in your information, and save it as wp-config.php. Need more help? Read the support article on wp-config.php.
-
-In all likelihood, these items were supplied to you by your web host. If you do not have this information, then you will need to contact them before you can continue. If you are ready…
-
-Let’s go!
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 6975k  100 6975k    0     0  5099k      0  0:00:01  0:00:01 --:--:-- 5117k
+Error: WordPress files seem to already be present here.
+PHP Warning:  mysqli_real_connect(): php_network_getaddresses: getaddrinfo for $(DB_HOST) failed: Name or service not known in phar:///var/www/html/wp-cli.phar/vendor/wp-cli/config-command/src/Config_Command.php on line 234
+Error: Database connection error (2002) php_network_getaddresses: getaddrinfo for $(DB_HOST) failed: Name or service not known
+Error: wp-config.php not found.
+Either create one manually or use `wp config create`.
