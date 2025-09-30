@@ -1,8 +1,11 @@
 FROM    debian:oldstable
 RUN     apt update && apt upgrade -y && apt install -y \
         nginx \
-        openssl
+        openssl \
+        curl
 COPY    conf/default /etc/nginx/sites-available/
+COPY    tools/script.sh .
+RUN     chmod +x script.sh
 RUN     mkdir -p /etc/ssl/certs /etc/ssl/private
 RUN     openssl req -x509 -nodes -days 365 \
         -newkey rsa:2048 \
@@ -10,8 +13,5 @@ RUN     openssl req -x509 -nodes -days 365 \
         -out /etc/ssl/certs/self-sign.cert \
         -subj "/CN=wjhoe.42.fr"
 EXPOSE  443
-CMD     ["nginx", "-g", "daemon off;"]
+CMD     ["./script.sh"]
 
-# docker run -it debian:oldstable bash
-# cat /etc/debian_version
-# cat /etc/os-releae

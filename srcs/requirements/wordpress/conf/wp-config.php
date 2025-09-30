@@ -1,6 +1,6 @@
 <?php
 define('DB_USER', 'user');
-define('DB_NAME', 'db_pwd');
+define('DB_NAME', 'name');
 define('DB_PASSWORD', 'db_pwd');
 define('DB_HOST', 'mariadb:3306');
 $table_prefix = 'wp_';

@@ -41,6 +41,16 @@ services:
         - mariadb
       networks:
         - inception
+      environment:
+        DB_HOST: ${DB_HOST}
+        DB_NAME: ${DB_NAME}
+        DB_USER: ${DB_USER}
+        DB_PASSWORD: ${DB_PASSWORD}
+        DB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+        WP_TITLE: ${WP_TITLE}
+        WP_ADMIN_USER: ${WP_ADMIN_USER}
+        WP_ADMIN_PASSWORD: ${WP_ADMIN_PASSWORD}
+        WP_ADMIN_EMAIL: ${WP_ADMIN_EMAIL}
       expose:
         - "9000"
       restart:

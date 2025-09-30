@@ -1,13 +1,11 @@
-[+] Building 3/3
- ✔ srcs-wordpress  Built                                                                                                                                         0.0s 
- ✔ srcs-mariadb    Built                                                                                                                                         0.0s 
- ✔ srcs-nginx      Built                                                                                                                                         0.0s 
-CONTAINER ID   IMAGE            COMMAND                  CREATED         STATUS         PORTS                                     NAMES
-6c4aec9e639c   42399f4cae0d     "nginx -g 'daemon of…"   7 minutes ago   Up 7 minutes   0.0.0.0:443->443/tcp, [::]:443->443/tcp   nginx
-f1cc3e67d4f4   srcs-wordpress   "./script.sh"            8 minutes ago   Up 7 minutes   9000/tcp                                  wp-php
-dafc279767d9   e552341b6e77     "/usr/local/bin/init…"   8 minutes ago   Up 7 minutes   3306/tcp                                  mariadb
-[+] Running 1/1
- ✘ Container mariadb  Error response from daemon: readdirent /var/lib/docker/volumes/srcs_db_data/_data: no such file or directory                               0.2s 
-Error response from daemon: readdirent /var/lib/docker/volumes/srcs_db_data/_data: no such file or directory
-make: *** [Makefile:17: run] Error 1
 
+Secure Connection Failed
+
+An error occurred during a connection to wjhoe.42.fr. PR_END_OF_FILE_ERROR
+
+Error code: PR_END_OF_FILE_ERROR
+
+    The page you are trying to view cannot be shown because the authenticity of the received data could not be verified.
+    Please contact the website owners to inform them of this problem.
+
+Learn more…
