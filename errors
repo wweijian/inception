@@ -1,22 +1,12 @@
-total 12
-drwxrwxr-x 2 wjhoe wjhoe 4096 Sep 29 23:29 conf
--rw-rw-r-- 1 wjhoe wjhoe  288 Sep 29 23:29 Dockerfile
-drwxrwxr-x 2 wjhoe wjhoe 4096 Sep 27 05:57 tools
-FROM    debian:oldstable
-RUN     apt-get update && apt upgrade -y && apt install -y php-fpm php-mysqli curl
-COPY    conf/www.conf /etc/php/8.2/fpm/pool.d/
-COPY    conf/wp-config.php /var/www/html/wp-config.php
-COPY    tools/script.sh .
-RUN     chmod +x script.sh
-CMD     ["./script.sh"]
 
-<?php
-define('DB_NAME', 'wordpress_db');
-define('DB_USER', 'wordpress_user');
-define('DB_PASSWORD', 'wordpress_pass');
-define('DB_HOST', 'db');
-$table_prefix = 'wp_';
-define('WP_DEBUG', false);
-if ( !defined('ABSPATH') )
-	define('ABSPATH', __DIR__. '/');
-require_once ABSPATH . 'wp-settings.php';
+Error establishing a database connection
+
+This either means that the username and password information in your wp-config.php file is incorrect or that contact with the database server at localhost could not be established. This could mean your host’s database server is down.
+
+    Are you sure you have the correct username and password?
+    Are you sure you have typed the correct hostname?
+    Are you sure the database server is running?
+
+If you are unsure what these terms mean you should probably contact your host. If you still need help you can always visit the WordPress support forums.
+
+Try Again
