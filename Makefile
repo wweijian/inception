@@ -1,8 +1,17 @@
+DB_DATA = /home/wjhoe/data/db
+WP_DATA = /home/wjhoe/data/wordpress
+
 all: build run
 
-build:
+build: $(DB_DATA) $(WP_DATA)
 	@docker compose -f ./srcs/docker-compose.yml build
 	@docker ps
+
+$(DB_DATA):
+	mkdir -p $(DB_DATA)
+
+$(WP_DATA):
+	mkdir -p $(WP_DATA)
 
 run:
 	@docker compose -f srcs/docker-compose.yml up -d

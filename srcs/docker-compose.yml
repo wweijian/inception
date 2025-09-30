@@ -3,6 +3,20 @@ networks:
   inception:
     name: inception
 
+volumes:
+  db_data:
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/wjhoe/data/db
+      o: bind
+  wp_data:
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/wjhoe/data/wordpress
+      o: bind
+
 services:
     nginx:
       container_name: nginx
@@ -13,7 +27,7 @@ services:
       ports:
         - "443:443"
       volumes:
-        - /home/wjhoe/data/wordpress:/var/www/html
+        - wp_data:/var/www/html
       networks:
         - inception
       restart:
@@ -22,21 +36,26 @@ services:
       container_name: wp-php
       build: requirements/wordpress/
       volumes:
-        - /home/wjhoe/data/wordpress:/var/www/html
+        - wp_data:/var/www/html
       depends_on:
         - mariadb
       networks:
         - inception
+      expose:
+        - "9000"
       restart:
         on-failure
     mariadb:
       container_name: mariadb
       build: requirements/mariadb/
       volumes:
-        - /home/wjhoe/data/mariadb:/var/lib/mysql      
+        - db_data:/var/lib/mysql      
       networks:
         - inception
-      # restart:
+      expose:
+        - "3306"
+      restart:
+        on-failure
 
 
 # volumes:
