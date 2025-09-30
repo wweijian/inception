@@ -1,20 +1,14 @@
-------
-Dockerfile:6
 
---------------------
+   6 |     RUN     mkdir -p /etc/ssl/certs /etc/ssl/private
 
-   4 |             openssl
+   7 | >>> RUN     openssl req -x509 -nodes -days 365 \
 
-   5 |     COPY    conf/default /etc/nginx/sites-available/
+   8 | >>>         -newkey rsa:2048 \
 
-   6 | >>> RUN     ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled
+   9 | >>>         -keyout /etc/ssl/private/self-sign.key \
 
-   7 |     RUN     mkdir -p /etc/ssl/certs /etc/ssl/private
+  10 | >>>         -out /etc/ssl/certs/self-sign.cert \
 
-   8 |     RUN     openssl req -x509 -nodes -days 365 \
+  11 | >>>         -subj "CN=wjhoe.42.fr"
 
---------------------
-
-target nginx: failed to solve: process "/bin/sh -c ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled" did not complete successfully: exit code: 1
-
-make: *** [Makefile:4: build] Error 1
+  12 |     EXPOSE  443
