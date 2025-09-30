@@ -19,14 +19,14 @@
 # Default server configuration
 #
 server {
-	listen 80 default_server;
-	listen [::]:80 default_server;
-	server_name wjhoe.42.fr;
 
 	# SSL configuration
 	#
-	# listen 443 ssl default_server;
-	# listen [::]:443 ssl default_server;
+	 listen 443 ssl default_server;
+	 listen [::]:443 ssl default_server;
+	 server_name wjhoe.42.fr;
+         ssl_certificate /etc/ssl/certs/self-sign.cert;
+	 ssl_certifcate_key /etc/ssl/certs/self-sign.key;
 	#
 	# Note: You should disable gzip for SSL traffic.
 	# See: https://bugs.debian.org/773332
