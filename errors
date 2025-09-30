@@ -1,7 +1,30 @@
-[+] Running 3/3
- ✔ Volume srcs_db_data  Created                                                                                                                                  0.0s 
- ✔ Volume srcs_wp_data  Created                                                                                                                                  0.0s 
- ✘ Container mariadb    Error response from daemon: failed to populate volume: error while mounting volume '/var/lib/docker/volumes/srcs_...                     0.1s 
-Error response from daemon: failed to populate volume: error while mounting volume '/var/lib/docker/volumes/srcs_db_data/_data': failed to mount local volume: mount /home/wjhoe/data/db:/var/lib/docker/volumes/srcs_db_data/_data, flags: 0x1000: no such file or directory
-make: *** [Makefile:8: run] Error 1
+DB_DATA = /home/wjhoe/data/db
+WP_DATA = /home/wjhoe/data/wordpress
 
+all: build run
+
+build: $(DB_PATH) $(WP_PATH)
+	@docker compose -f ./srcs/docker-compose.yml build
+	@docker ps
+
+$(DB_DATA):
+	mkdir -p $(DB_DATA)
+
+$(WP_DATA):
+	mkdir -p $(WP_DATA)
+
+run:
+	@docker compose -f srcs/docker-compose.yml up -d
+
+check:
+	@docker ps -a
+
+clean:
+	@docker compose -f srcs/docker-compose.yml down
+
+fclean: clean
+	docker system prune -a -f
+
+re: fclean all
+
+.PHONY: all build run check clean fclean re
