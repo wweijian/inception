@@ -1,11 +1,13 @@
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0 57 6975k   57 3979k    0     0  3680k      0  0:00:01  0:00:01 --:--:-- 3684k100 6975k  100 6975k    0     0  5134k      0  0:00:01  0:00:01 --:--:-- 5140k
-Error: WordPress files seem to already be present here.
-./script.sh: line 7: mysqladmin: command not found
-./script.sh: line 7: mysqladmin: command not found
-./script.sh: line 7: mysqladmin: command not found
-./script.sh: line 7: mysqladmin: command not found
-./script.sh: line 7: mysqladmin: command not found
-./script.sh: line 7: mysqladmin: command not found
-./script.sh: line 7: mysqladmin: command not found
+[+] Building 3/3
+ ✔ srcs-wordpress  Built                                                                                                                                         0.0s 
+ ✔ srcs-mariadb    Built                                                                                                                                         0.0s 
+ ✔ srcs-nginx      Built                                                                                                                                         0.0s 
+CONTAINER ID   IMAGE            COMMAND                  CREATED         STATUS         PORTS                                     NAMES
+6c4aec9e639c   42399f4cae0d     "nginx -g 'daemon of…"   7 minutes ago   Up 7 minutes   0.0.0.0:443->443/tcp, [::]:443->443/tcp   nginx
+f1cc3e67d4f4   srcs-wordpress   "./script.sh"            8 minutes ago   Up 7 minutes   9000/tcp                                  wp-php
+dafc279767d9   e552341b6e77     "/usr/local/bin/init…"   8 minutes ago   Up 7 minutes   3306/tcp                                  mariadb
+[+] Running 1/1
+ ✘ Container mariadb  Error response from daemon: readdirent /var/lib/docker/volumes/srcs_db_data/_data: no such file or directory                               0.2s 
+Error response from daemon: readdirent /var/lib/docker/volumes/srcs_db_data/_data: no such file or directory
+make: *** [Makefile:17: run] Error 1
+
