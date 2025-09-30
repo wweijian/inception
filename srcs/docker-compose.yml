@@ -11,7 +11,7 @@ services:
         - wordpress
         - mariadb
       ports:
-        - "80:80"
+        - "443:443"
       volumes:
         - /home/wjhoe/data/wordpress:/var/www/html
       networks:

@@ -2,6 +2,7 @@ all: build run
 
 build:
 	@docker compose -f ./srcs/docker-compose.yml build
+	@docker ps
 
 run:
 	@docker compose -f srcs/docker-compose.yml up -d
