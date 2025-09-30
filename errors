@@ -1,4 +1,7 @@
-CONTAINER ID   IMAGE            COMMAND                  CREATED         STATUS         PORTS                                     NAMES
-4f07faecce2a   srcs-nginx       "nginx -g 'daemon of…"   2 minutes ago   Up 2 minutes   0.0.0.0:443->443/tcp, [::]:443->443/tcp   nginx
-8197512db70f   srcs-wordpress   "./script.sh"            2 minutes ago   Up 2 minutes   9000/tcp                                  wp-php
-ac54c471ad29   srcs-mariadb     "/usr/local/bin/init…"   2 minutes ago   Up 2 minutes   3306/tcp                                  mariadb
+mariadb -v -u root << EOF
+CREATE DATABASE IF NOT EXISTS $DB_NAME;
+CREATE USER IF NOT EXISTS '$DB_USER'@'%' IDENTIFIED BY '$DB_PASSWORD';
+GRANT ALL PRIVILEGES ON $DB_NAME.* TO '$DB_USER'@'%' IDENTIFIED BY '$DB_PASSWORD';
+GRANT ALL PRIVILEGES ON $DB_NAME.* TO 'root'@'%' IDENTIFIED BY '$DB_PASS_ROOT';
+SET PASSWORD FOR 'root'@'localhost' = PASSWORD('$DB_PASS_ROOT');
+EOF
