@@ -1,22 +1,18 @@
-root@40ef374fb68f:/# curl -I http://localhost
-HTTP/1.1 302 Found
-Server: nginx/1.22.1
-Date: Tue, 30 Sep 2025 00:49:54 GMT
-Content-Type: text/html; charset=UTF-8
-Connection: keep-alive
-Location: http://localhost/wp-admin/setup-config.php
+FROM    debian:oldstable
+RUN     apt update && apt upgrade -y && apt install -y \
+        nginx \
+        openssl
+COPY    conf/default /etc/nginx/sites-available/
+RUN     ln - s /etc/nginx/sites-available/default /etc/nginx/sites-enabled
+RUN     mkdir -p /etc/ssl/certs /etc/ssl/private
+RUN     open req -x509 nodes -days 365 \
+        -newkey rsa:2048 \
+        -keyout /etc/ssl/private/self-sign.key \
+        -out /etc/ssl/certs/self-sign.cert \
+        -subj "CN=wjhoe.42.fr"
+EXPOSE  443
+CMD     ["nginx", "-g", "daemon off;"]
 
-root@40ef374fb68f:/# curl -I http://localhost:80
-HTTP/1.1 302 Found
-Server: nginx/1.22.1
-Date: Tue, 30 Sep 2025 00:50:14 GMT
-Content-Type: text/html; charset=UTF-8
-Connection: keep-alive
-Location: http://localhost/wp-admin/setup-config.php
-
-root@40ef374fb68f:/# curl -I http://localhost:443
-curl: (7) Failed to connect to localhost port 443 after 0 ms: Couldn't connect to server
-root@40ef374fb68f:/# 
-
-
-
+# docker run -it debian:oldstable bash
+# cat /etc/debian_version
+# cat /etc/os-releae
