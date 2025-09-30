@@ -1,11 +1,1 @@
-CONTAINER ID   IMAGE            COMMAND                  CREATED              STATUS              PORTS                                 NAMES
-e12b606fa689   srcs-nginx       "nginx -g 'daemon of…"   About a minute ago   Up About a minute   0.0.0.0:80->80/tcp, [::]:80->80/tcp   nginx
-110266e11cb3   srcs-wordpress   "./script.sh"            About a minute ago   Up About a minute                                         wp-php
-wjhoe@inception:~/inception$ docker logs mariadb 
-250929 01:16:29 mysqld_safe Logging to syslog.
-250929 01:16:29 mysqld_safe Starting mariadbd daemon with databases from var/lib/mysql
-wjhoe@inception:~/inception$ docker ps
-CONTAINER ID   IMAGE            COMMAND                  CREATED         STATUS              PORTS                                 NAMES
-e12b606fa689   srcs-nginx       "nginx -g 'daemon of…"   2 minutes ago   Up About a minute   0.0.0.0:80->80/tcp, [::]:80->80/tcp   nginx
-110266e11cb3   srcs-wordpress   "./script.sh"            2 minutes ago   Up About a minute                                         wp-php
-
+target nginx: failed to solve: process "/bin/sh -c apt update && apt upgrade -y && apt install -y         nginx         certbot         python3-certbot-nginx COPY    conf/default /etc/nginx/sites-available/" did not complete successfully: exit code: 100
