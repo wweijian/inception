@@ -1,21 +1,7 @@
-mariadb -v -u root << EOF
-CREATE DATABASE IF NOT EXISTS $DB_NAME;
-CREATE USER IF NOT EXISTS '$DB_USER'@'%' IDENTIFIED BY '$DB_PASSWORD';
-GRANT ALL PRIVILEGES ON $DB_NAME.* TO '$DB_USER'@'%' IDENTIFIED BY '$DB_PASSWORD';
-GRANT ALL PRIVILEGES ON $DB_NAME.* TO 'root'@'%' IDENTIFIED BY '$DB_PASS_ROOT';
-SET PASSWORD FOR 'root'@'localhost' = PASSWORD('$DB_PASS_ROOT');
-EOF
-WordPress
-Before getting started
+[+] Running 3/3
+ ✔ Volume srcs_db_data  Created                                                                                                                                  0.0s 
+ ✔ Volume srcs_wp_data  Created                                                                                                                                  0.0s 
+ ✘ Container mariadb    Error response from daemon: failed to populate volume: error while mounting volume '/var/lib/docker/volumes/srcs_...                     0.1s 
+Error response from daemon: failed to populate volume: error while mounting volume '/var/lib/docker/volumes/srcs_db_data/_data': failed to mount local volume: mount /home/wjhoe/data/db:/var/lib/docker/volumes/srcs_db_data/_data, flags: 0x1000: no such file or directory
+make: *** [Makefile:8: run] Error 1
 
-Welcome to WordPress. Before getting started, you will need to know the following items.
-
-    Database name
-    Database username
-    Database password
-    Database host
-    Table prefix (if you want to run more than one WordPress in a single database)
-
-This information is being used to create a wp-config.php file. If for any reason this automatic file creation does not work, do not worry. All this does is fill in the database information to a configuration file. You may also simply open wp-config-sample.php in a text editor, fill in your information, and save it as wp-config.php. Need more help? Read the support article on wp-config.php.
-
-In all likelihood, these items were supplied to you by your web host. If you do not have this information, then you will need to contact them before you can continue. If you are ready… 
