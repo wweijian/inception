@@ -1,10 +1,1 @@
-wjhoe@inception:~/inception$ docker exec -it wp-php ps aus | grep php
-wjhoe@inception:~/inception$ docker logs wp-php 
-  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-                                 Dload  Upload   Total   Spent    Left  Speed
-100 6975k  100 6975k    0     0  5185k      0  0:00:01  0:00:01 --:--:-- 5240k
-Error: WordPress files seem to already be present here.
-wjhoe@inception:~/inception$ docker exec -it wp-php netstat -tlnp | grep 9000
-wjhoe@inception:~/inception$ docker exec -it nginx nc -zv wp-php 9000
-OCI runtime exec failed: exec failed: unable to start container process: exec: "nc": executable file not found in $PATH: unknown
-wjhoe@inception:~/inception$ 
+target nginx: failed to solve: failed to fetch anonymous token: Get "https://auth.docker.io/token?scope=repository%3Alibrary%2Fdebian%3Apull&service=registry.docker.io": dial tcp: lookup auth.docker.io on 192.168.1.1:53: read udp 10.0.2.15:35638->192.168.1.1:53: i/o timeout
