@@ -1,16 +1,10 @@
-wjhoe@inception:~/inception$ docker ps
-CONTAINER ID   IMAGE            COMMAND                  CREATED         STATUS         PORTS                                     NAMES
-d1fed679dd5e   srcs-nginx       "./script.sh"            4 minutes ago   Up 4 minutes   0.0.0.0:443->443/tcp, [::]:443->443/tcp   nginx
-8d64058d2109   srcs-wordpress   "./script.sh"            4 minutes ago   Up 4 minutes   9000/tcp                                  wp-php
-2f8750f4665e   srcs-mariadb     "/usr/local/bin/init…"   4 minutes ago   Up 4 minutes   3306/tcp                                  mariadb
-wjhoe@inception:~/inception$ docker logs nginx
+wjhoe@inception:~/inception$ docker exec -it wp-php ps aus | grep php
 wjhoe@inception:~/inception$ docker logs wp-php 
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-100 6975k  100 6975k    0     0  3706k      0  0:00:01  0:00:01 --:--:-- 3708k
+100 6975k  100 6975k    0     0  5185k      0  0:00:01  0:00:01 --:--:-- 5240k
 Error: WordPress files seem to already be present here.
-wjhoe@inception:~/inception$ docker logs mariadb 
-Starting temporary MariaDB...
-251001 01:56:58 mysqld_safe Logging to syslog.
-251001 01:56:58 mysqld_safe Starting mariadbd daemon with databases from /var/lib/mysql
-Running initialization SQL...
+wjhoe@inception:~/inception$ docker exec -it wp-php netstat -tlnp | grep 9000
+wjhoe@inception:~/inception$ docker exec -it nginx nc -zv wp-php 9000
+OCI runtime exec failed: exec failed: unable to start container process: exec: "nc": executable file not found in $PATH: unknown
+wjhoe@inception:~/inception$ 
