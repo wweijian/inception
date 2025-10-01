@@ -8,12 +8,18 @@ until mysqladmin ping -h"mariadb" -u"${DB_USER}" -p"${DB_PASSWORD}" --silent; do
 	sleep 3
 done
 
-./-cli.phar config create \
+./wp-cli.phar config create \
        --dbname=${DB_NAME} \
        --dbuser=${DB_USER} \
        --dbpass=${DB_PASSWORD} \
        --dbhost=${DB_HOST} \
        --allow-root
-./wp-cli.phar core install --url=localhost --title=inception --admin_user=admin --admin_password=admin --admin_email=admin@admin.com --allow-root
+./wp-cli.phar core install \
+    --url=${DOMAIN_NAME} \
+    --title="${WP_TITLE}" \
+    --admin_user=${WP_ADMIN_USER} \
+    --admin_password=${WP_ADMIN_PASSWORD} \
+    --admin_email=${WP_ADMIN_EMAIL} \
+    --allow-root
 
 php-fpm8.2 -F
