@@ -1,82 +1,55 @@
-
-networks:
-  inception:
-    name: inception
-
 volumes:
-  db_data:
+  mariadb:
     driver: local
     driver_opts:
       type: none
-      device: /home/wjhoe/data/db
+      device: /home/wjhoe/data/mariadb
       o: bind
-  wp_data:
+  wordpress:
     driver: local
     driver_opts:
       type: none
       device: /home/wjhoe/data/wordpress
       o: bind
 
+networks:
+  inception:
+    driver: bridge
+
 services:
-    nginx:
-      container_name: nginx
-      build: requirements/nginx/
-      depends_on:
-        - wordpress
-        - mariadb
-      ports:
-        - "443:443"
-      volumes:
-        - wp_data:/var/www/html
-      networks:
-        - inception
-      restart:
-        on-failure
-    wordpress:
-      container_name: wp-php
-      build: requirements/wordpress/
-      volumes:
-        - wp_data:/var/www/html
-      depends_on:
-        - mariadb
-      networks:
-        - inception
-      environment:
-        DONMAIN_NAME: ${DOMAIN_NAME}
-        DB_HOST: ${DB_HOST}
-        DB_NAME: ${DB_NAME}
-        DB_USER: ${DB_USER}
-        DB_PASSWORD: ${DB_PASSWORD}
-        DB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
-        WP_TITLE: ${WP_TITLE}
-        WP_ADMIN_USER: ${WP_ADMIN_USER}
-        WP_ADMIN_PASSWORD: ${WP_ADMIN_PASSWORD}
-        WP_ADMIN_EMAIL: ${WP_ADMIN_EMAIL}
-      expose:
-        - "9000"
-      restart:
-        on-failure
-    mariadb:
-      container_name: mariadb
-      build: requirements/mariadb/
-      volumes:
-        - db_data:/var/lib/mysql      
-      networks:
-        - inception
-      environment:
-        DB_NAME: ${DB_NAME}
-        DB_USER: ${DB_USER}
-        DB_PASSWORD: ${DB_PASSWORD}
-        DB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
-      expose:
-        - "3306"
-      restart:
-        on-failure
-
-
-# volumes:
-#   db-data:
-#   wp-data:
-
-# Networks let services communicate with each other.
-# You’re mapping host port 443 to container port 443, so traffic to your machine’s port 443 goes into the container’s port 443.
+  nginx:
+    networks:
+      - inception
+    build: requirements/nginx
+    env_file:
+      .env
+    volumes:
+      - wordpress:/var/www/html
+    restart:
+      on-failure
+    ports:
+      - "443:443"
+  mariadb:
+    networks:
+      - inception
+    build: requirements/mariadb
+    env_file:
+      .env
+    volumes:
+      - mariadb:/var/lib/mysql
+    restart:
+      on-failure
+    expose:
+      - "3306"
+  wordpress:
+    networks:
+      - inception
+    build: requirements/wordpress
+    env_file:
+      .env
+    volumes:
+      - wordpress:/var/www/html
+    restart:
+      on-failure
+    expose:
+      - "9000"

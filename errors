@@ -1,1 +1,0 @@
-target nginx: failed to solve: failed to fetch anonymous token: Get "https://auth.docker.io/token?scope=repository%3Alibrary%2Fdebian%3Apull&service=registry.docker.io": dial tcp: lookup auth.docker.io on 192.168.1.1:53: read udp 10.0.2.15:35638->192.168.1.1:53: i/o timeout
