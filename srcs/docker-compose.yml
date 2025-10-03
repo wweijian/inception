@@ -18,6 +18,8 @@ networks:
 
 services:
   nginx:
+    container_name:
+      nginx
     networks:
       - inception
     build: requirements/nginx
@@ -30,6 +32,8 @@ services:
     ports:
       - "443:443"
   mariadb:
+    container_name:
+      mariadb
     networks:
       - inception
     build: requirements/mariadb
@@ -42,6 +46,8 @@ services:
     expose:
       - "3306"
   wordpress:
+    container_name:
+      wordpress
     networks:
       - inception
     build: requirements/wordpress

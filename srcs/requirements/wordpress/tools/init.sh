@@ -22,7 +22,7 @@ fi
 
 sleep 15
 
-if [! wp core is-installed --allow-root]; then
+if [ ! wp core is-installed --allow-root]; then
 	wp core install \
 		--url="${DOMAIN_NAME}" \
 		--title="${SITE_TITLE}" \
