@@ -1,11 +1,12 @@
-
-Secure Connection Failed
-
-An error occurred during a connection to wjhoe.42.fr. PR_END_OF_FILE_ERROR
-
-Error code: PR_END_OF_FILE_ERROR
-
-    The page you are trying to view cannot be shown because the authenticity of the received data could not be verified.
-    Please contact the website owners to inform them of this problem.
-
-
+2025/10/03 13:53:15 [emerg] 1#1: "server" directive is not allowed here in /etc/nginx/nginx.conf:3
+2025/10/03 13:53:17 [emerg] 1#1: "server" directive is not allowed here in /etc/nginx/nginx.conf:3
+2025/10/03 13:53:18 [emerg] 1#1: "server" directive is not allowed here in /etc/nginx/nginx.conf:3
+2025/10/03 13:53:19 [emerg] 1#1: "server" directive is not allowed here in /etc/nginx/nginx.conf:3
+2025/10/03 13:53:20 [emerg] 1#1: "server" directive is not allowed here in /etc/nginx/nginx.conf:3
+2025/10/03 13:53:22 [emerg] 1#1: "server" directive is not allowed here in /etc/nginx/nginx.conf:3
+2025/10/03 13:53:26 [emerg] 1#1: "server" directive is not allowed here in /etc/nginx/nginx.conf:3
+2025/10/03 13:53:33 [emerg] 1#1: "server" directive is not allowed here in /etc/nginx/nginx.conf:3
+2025/10/03 13:53:47 [emerg] 1#1: "server" directive is not allowed here in /etc/nginx/nginx.conf:3
+2025/10/03 13:54:13 [emerg] 1#1: "server" directive is not allowed here in /etc/nginx/nginx.conf:3
+2025/10/03 13:55:04 [emerg] 1#1: "server" directive is not allowed here in /etc/nginx/nginx.conf:3
+2025/10/03 13:56:05 [emerg] 1#1: "server" directive is not allowed here in /etc/nginx/nginx.conf:3

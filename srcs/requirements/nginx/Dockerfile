@@ -21,7 +21,7 @@ RUN mkdir -p /var/www/wordpress /var/run/nginx && \
     chown -R www-data:www-data /var/www/wordpress
 
 # -- copy config 
-COPY conf/nginx.conf /etc/nginx/nginx/nginx.conf
+COPY conf/nginx.conf /etc/nginx/nginx.conf
 
 # -- "daemon off" ensures the container stays alive
 CMD ["nginx", "-g", "daemon off;"]

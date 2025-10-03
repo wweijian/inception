@@ -1,7 +1,7 @@
 #!/bin/bash
 
-mkdir -p /var/www/wordpress
-cd /var/www/wordpress
+mkdir -p /var/www/html
+cd /var/www/html
 
 WP_PATH='/usr/local/bin/wp'
 
