@@ -5,8 +5,8 @@ cd /var/www/wordpress
 
 WP_PATH='/usr/local/bin/wp'
 
-if [! -f ${WP_PATH} ]; then
-	curl -0  https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+if [ ! -f ${WP_PATH} ]; then
+	curl -O  https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 	chmod +x wp-cli.phar
 	mv wp-cli.phar ${WP_PATH}
 fi
@@ -22,7 +22,7 @@ fi
 
 sleep 15
 
-if [ ! wp core is-installed --allow-root]; then
+if ! wp core is-installed --allow-root; then
 	wp core install \
 		--url="${DOMAIN_NAME}" \
 		--title="${SITE_TITLE}" \
