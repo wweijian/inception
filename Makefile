@@ -4,8 +4,8 @@ WP_DATA = /home/wjhoe/data/wordpress
 all: build run
 
 build: $(DB_DATA) $(WP_DATA)
+	cp /home/wjhoe/.environmentfile/.env ./srcs
 	@docker compose -f ./srcs/docker-compose.yml build
-	@docker ps
 
 $(DB_DATA):
 	mkdir -p $(DB_DATA)
